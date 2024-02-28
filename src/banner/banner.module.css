@@ -1,0 +1,134 @@
+/* banner.module.css */
+.carousel {
+  width: 100%;
+  overflow: hidden;
+  position: relative; /* Add position relative to the carousel container */
+}
+
+.slide {
+  position: relative;
+  display: none;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.slide.active {
+  display: flex;
+}
+
+.slideContent {
+  position: absolute;
+  width: 50%;
+  margin-top: -10%;
+  top: 50%;
+  left: 40px; /* Adjust as needed */
+  transform: translateY(-50%);
+  z-index: 1;
+  color: white;
+  animation: slideInRight 1s forwards;
+}
+
+.slideContent button{
+  margin-top: 10px;
+  margin-bottom: 10px;
+  width: 150px;
+  height: 50px;
+  border-radius: 5px;
+  border: none;
+  background-color: #6CBF00;
+  box-shadow: 0 8px 16px rgba(16, 158, 129, 0.5);
+  color: aliceblue;
+  font-size: small;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.slideContent h1{
+  text-align: center;
+  font-size: xx-large;
+}
+
+.slideContent p{
+  text-align: left;
+  font-size: large;
+  font-variant: unset;
+  font-style: oblique;
+  font-variant: small-caps;
+  font-weight: 600;
+  z-index: 10;
+  color: #6CBF00;
+}
+
+
+.slideContent h4{
+  text-align: left;
+    font-size: medium;
+    font-weight: 200;
+}
+.separator{
+  margin-bottom: 40%;
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.slideImageContainer {
+  flex: 1;
+  position: relative;
+}
+
+.slideImage {
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
+  opacity: 0.8;
+  transform: translateX(-100%);
+}
+
+.slideImage:hover {
+  opacity: 1;
+}
+
+.slide.active .slideImage {
+  opacity: 1;
+  transition: transform 0.5s ease-in-out, opacity 10s ease-in-out;
+  transform: translateX(0);
+}
+
+/* banner.module.css */
+.plot {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+.gradientOverlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 25%; /* Set the height to cover at least 25% of the bottom */
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.6) 50%, rgba(0, 0, 0, 0.8) 100%);
+  pointer-events: none; /* Ensure the overlay doesn't interfere with mouse events */
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+  .slideContent {
+    width: 80%; /* Adjust width for medium devices */
+    left: 10%; /* Center content horizontally */
+    margin-top: -85%;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .slideContent {
+    width: 90%; /* Adjust width for small devices */
+    left: 5%; /* Center content horizontally */
+    margin-top: -35%;
+  }
+}

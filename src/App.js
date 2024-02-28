@@ -1,13 +1,24 @@
-import { useState } from "react";
-import MovieGetter from "./components/api/MovieGetter";
+import { useEffect, useState } from "react";
 import './styles.css'
+import data from './films.json'
+import MoviesList from "./api/MoviesList";
+import Banner from "./banner/Banner";
 
 function App() {
   const [movie,setMovie] = useState([]);
+  useEffect(()=>{
+    setMovie(data);
+  },[setMovie]);
   return (
     <div className="App">
-      <MovieGetter movie={movie} setMovie={setMovie}
-        />
+      <Banner
+        movie={movie} setMovie={setMovie}
+      />
+
+      <MoviesList
+        movie={movie}
+      />
+      
     </div>
   );
 }
